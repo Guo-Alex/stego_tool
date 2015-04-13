@@ -13,5 +13,33 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\steganalyzer">
+      <UniqueIdentifier>{ed83d3e2-b28c-475a-9f6b-5244ddaf928e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\steganalyzer">
+      <UniqueIdentifier>{4fef5ff7-c357-4057-a1e2-5cc98e9a7ce7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\image">
+      <UniqueIdentifier>{878bbbeb-b42e-492c-bc16-0ec93ae199f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\image">
+      <UniqueIdentifier>{96950fce-5754-47d2-967b-019428e26ef7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\steganalyzer\steganalyzer.h">
+      <Filter>Header Files\steganalyzer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\image\image.h">
+      <Filter>Header Files\image</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\steganalyzer\steganalyzer.cpp">
+      <Filter>Source Files\steganalyzer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\image\image.cpp">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

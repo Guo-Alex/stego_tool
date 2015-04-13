@@ -5,27 +5,33 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/core/core.hpp>
 
-class Image
+namespace StegoTool
 {
-public:
-	Image(const std::string& pathToFile);
-	~Image();
+	class Image
+	{
+	public:
+		Image(const std::string& pathToFile);
+		~Image();
 
-	// cols = w * c;
-	// w * c * h = cols * rows; 
-	int get_width() const;
-	int get_height() const;
-	int get_channels() const;	
-	int get_cols() const;
-	int get_rows() const;
+		// cols = w * c;
+		// w * c * h = cols * rows; 
+		int get_width() const;
+		int get_height() const;
+		int get_channels() const;
+		int get_cols() const;
+		int get_rows() const;
 
-	int get_value_from1d(int pos) const;
-	int get_value_from2d(int i, int j) const;
-	int get_value(int i, int j, int c) const;
+		uchar get_value_from1d(int pos) const;
+		uchar get_value_from2d(int i, int j) const;
+		uchar get_value(int i, int j, int c) const;
 
-	unsigned char* get_1d_ptr();
-private: 
-	cv::Mat image;
-};
+		void set_value_in1d(uchar value, int pos);
+		void set_value_in2d(uchar value, int i, int j);
+		void set_value(uchar value, int i, int j, int c);
 
+		unsigned char* get_1d_ptr();
+	private:
+		cv::Mat image;
+	};
+}
 #endif
