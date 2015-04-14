@@ -87,7 +87,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\embedder\LsbEmbedder.cpp" />
+    <ClCompile Include="src\experiment\experiment.cpp" />
     <ClCompile Include="src\image\image.cpp" />
+    <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\steganalyzer\shift_compress_steganalyzer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +99,8 @@
     <ClInclude Include="src\embedder\embedder_config.h" />
     <ClInclude Include="src\embedder\lsb_embedder.h" />
     <ClInclude Include="src\embedder\lsb_embedder_config.h" />
+    <ClInclude Include="src\experiment\experiment.h" />
+    <ClInclude Include="src\experiment\experiment_result.h" />
     <ClInclude Include="src\image\image.h" />
     <ClInclude Include="src\steganalyzer\shift_compress_steganalyzer.h" />
     <ClInclude Include="src\steganalyzer\shift_compress_steganalyzer_config.h" />

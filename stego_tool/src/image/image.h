@@ -27,7 +27,7 @@ namespace StegoTool
 		uchar get_value(int i, int j, int c) const;
 		
 		const cv::Mat& get_mat() const;
-		std::string get_original_filename()
+		std::string get_original_filename() const;
 
 		void set_value_in1d(uchar value, int pos);
 		void set_value_in2d(uchar value, int i, int j);

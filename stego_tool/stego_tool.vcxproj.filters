@@ -34,6 +34,12 @@
     <Filter Include="Header Files\compressor">
       <UniqueIdentifier>{ce69d590-388b-4948-ac9c-1c30f6fea5a7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\experiment">
+      <UniqueIdentifier>{6f6ead14-6fd2-4555-a99c-f66809520040}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\experiment">
+      <UniqueIdentifier>{62cfefa0-3ae5-4772-bdcf-cfb5c76a9763}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\steganalyzer\steganalyzer.h">
@@ -69,6 +75,12 @@
     <ClInclude Include="src\steganalyzer\shift_compress_steganalyzer_config.h">
       <Filter>Header Files\steganalyzer</Filter>
     </ClInclude>
+    <ClInclude Include="src\experiment\experiment.h">
+      <Filter>Header Files\experiment</Filter>
+    </ClInclude>
+    <ClInclude Include="src\experiment\experiment_result.h">
+      <Filter>Header Files\experiment</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\image\image.cpp">
@@ -79,6 +91,12 @@
     </ClCompile>
     <ClCompile Include="src\steganalyzer\shift_compress_steganalyzer.cpp">
       <Filter>Source Files\steganalyzer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\experiment\experiment.cpp">
+      <Filter>Source Files\experiment</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <sstream>
 
 namespace StegoTool
 {
@@ -20,6 +21,16 @@ namespace StegoTool
 			filenames[result_idx] = filename;
 			labels[result_idx] = label;
 			scores[result_idx] = score;
+		}
+
+		std::string get_info() const
+		{
+			std::stringstream ss;
+
+			ss << "Files Count: " << filenames.size() << std::endl; 
+			ss << "Positive Label: " << positiveLabel << std::endl;
+
+			return ss.str();
 		}
 
 	private:
