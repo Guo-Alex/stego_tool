@@ -61,6 +61,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)\stego_tool\lib\x86\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libboost_filesystem-vc120-mt-gd-1_57.lib;libboost_program_options-vc120-mt-gd-1_57.lib;libboost_system-vc120-mt-gd-1_57.lib;opencv_core2410d.lib;opencv_highgui2410d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -79,15 +81,27 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(ProjectDir)\lib\x86\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libboost_filesystem-vc120-mt-1_57.lib;libboost_program_options-vc120-mt-1_57.lib;libboost_system-vc120-mt-1_57.lib;opencv_core2410.lib;opencv_highgui2410.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\embedder\LsbEmbedder.cpp" />
     <ClCompile Include="src\image\image.cpp" />
-    <ClCompile Include="src\steganalyzer\steganalyzer.cpp" />
+    <ClCompile Include="src\steganalyzer\shift_compress_steganalyzer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\compressor\compressor.h" />
+    <ClInclude Include="src\compressor\png_compressor.h" />
+    <ClInclude Include="src\embedder\embedder.h" />
+    <ClInclude Include="src\embedder\embedder_config.h" />
+    <ClInclude Include="src\embedder\lsb_embedder.h" />
+    <ClInclude Include="src\embedder\lsb_embedder_config.h" />
     <ClInclude Include="src\image\image.h" />
+    <ClInclude Include="src\steganalyzer\shift_compress_steganalyzer.h" />
+    <ClInclude Include="src\steganalyzer\shift_compress_steganalyzer_config.h" />
     <ClInclude Include="src\steganalyzer\steganalyzer.h" />
+    <ClInclude Include="src\steganalyzer\steganalyzer_config.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -10,7 +10,8 @@ namespace StegoTool
 	class Image
 	{
 	public:
-		Image(const std::string& pathToFile);
+		Image(const std::string& pathToFile); 
+		Image(const cv::Mat& head);
 		~Image();
 
 		// cols = w * c;
@@ -24,6 +25,8 @@ namespace StegoTool
 		uchar get_value_from1d(int pos) const;
 		uchar get_value_from2d(int i, int j) const;
 		uchar get_value(int i, int j, int c) const;
+		
+		const cv::Mat& get_mat() const;
 
 		void set_value_in1d(uchar value, int pos);
 		void set_value_in2d(uchar value, int i, int j);

@@ -6,6 +6,13 @@ namespace StegoTool
 	{
 		image = cv::imread(pathToFile);
 	}
+
+	Image::Image(const cv::Mat& head)
+		: image(head)
+	{
+
+	}
+
 	Image::~Image(){}
 
 	int Image::get_width() const {
@@ -55,5 +62,9 @@ namespace StegoTool
 
 	unsigned char* Image::get_1d_ptr() {
 		return image.data;
+	}
+
+	const cv::Mat& Image::get_mat() const {
+		return image;
 	}
 }

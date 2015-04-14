@@ -25,6 +25,15 @@
     <Filter Include="Source Files\image">
       <UniqueIdentifier>{96950fce-5754-47d2-967b-019428e26ef7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\embedder">
+      <UniqueIdentifier>{162d88d8-9064-4e59-9d4e-fc02ac7c9547}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\embedder">
+      <UniqueIdentifier>{35e8860e-9d99-4cf9-86a2-d7ae2d8cad09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\compressor">
+      <UniqueIdentifier>{ce69d590-388b-4948-ac9c-1c30f6fea5a7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\steganalyzer\steganalyzer.h">
@@ -33,13 +42,43 @@
     <ClInclude Include="src\image\image.h">
       <Filter>Header Files\image</Filter>
     </ClInclude>
+    <ClInclude Include="src\steganalyzer\steganalyzer_config.h">
+      <Filter>Header Files\steganalyzer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\embedder\embedder.h">
+      <Filter>Header Files\embedder</Filter>
+    </ClInclude>
+    <ClInclude Include="src\embedder\embedder_config.h">
+      <Filter>Header Files\embedder</Filter>
+    </ClInclude>
+    <ClInclude Include="src\embedder\lsb_embedder.h">
+      <Filter>Header Files\embedder</Filter>
+    </ClInclude>
+    <ClInclude Include="src\embedder\lsb_embedder_config.h">
+      <Filter>Header Files\embedder</Filter>
+    </ClInclude>
+    <ClInclude Include="src\compressor\png_compressor.h">
+      <Filter>Header Files\compressor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\compressor\compressor.h">
+      <Filter>Header Files\compressor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\steganalyzer\shift_compress_steganalyzer.h">
+      <Filter>Header Files\steganalyzer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\steganalyzer\shift_compress_steganalyzer_config.h">
+      <Filter>Header Files\steganalyzer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\steganalyzer\steganalyzer.cpp">
-      <Filter>Source Files\steganalyzer</Filter>
-    </ClCompile>
     <ClCompile Include="src\image\image.cpp">
       <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="src\embedder\LsbEmbedder.cpp">
+      <Filter>Source Files\embedder</Filter>
+    </ClCompile>
+    <ClCompile Include="src\steganalyzer\shift_compress_steganalyzer.cpp">
+      <Filter>Source Files\steganalyzer</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
