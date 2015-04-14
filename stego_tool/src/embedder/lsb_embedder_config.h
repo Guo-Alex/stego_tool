@@ -4,6 +4,12 @@
 #include "embedder_config.h"
 #include <vector>
 
+#include <algorithm>
+#include <iterator>
+#include <random>
+#include <numeric>   
+
+
 namespace StegoTool {
 	class LsbEmbedderConfig : public EmbedderConfig
 	{
@@ -15,11 +21,27 @@ namespace StegoTool {
 
 		}
 		LsbEmbedderConfig(double embeddingRate, int width, int height, int seed) 
-			: EmbedderConfig(embeddingRate)
+			: EmbedderConfig(embeddingRate) 
 		{
 			int fullSize = width * height;
 			int messageLength = (int) embeddingRate * fullSize;
+
+			message = std::vector<unsigned char>(messageLength);
+			
 			// genereate message and positions
+			 
+			std::mt19937 mt(seed);
+			std::uniform_real_distribution<double> dist(0, 1);
+
+			for (int i = 0; i < (int)message.size(); ++i)
+				message[i] = dist(mt) > 0.5 ? 1 : 0;
+			
+			std::vector<unsigned int> all_positions(fullSize);
+			std::iota(all_positions.begin(), all_positions.end(), 0);
+
+			std::random_shuffle(all_positions.begin(), all_positions.end());
+
+			positions = std::vector<unsigned int>(all_positions.begin(), all_positions.begin() + messageLength);
 		}
 
 		int get_message_length() const { return message.size(); }

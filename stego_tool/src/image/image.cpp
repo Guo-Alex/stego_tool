@@ -3,17 +3,23 @@
 namespace StegoTool
 {
 	Image::Image(const std::string& pathToFile)
+		: filename(pathToFile)
 	{
 		image = cv::imread(pathToFile);
 	}
 
-	Image::Image(const cv::Mat& head)
-		: image(head)
+	Image::Image(const cv::Mat& head, const std::string& filename)
+		: image(head), filename(filename)
 	{
-
+		
 	}
 
 	Image::~Image(){}
+
+	std::string Image::get_original_filename() const
+	{
+		return filename;
+	}
 
 	int Image::get_width() const {
 		return image.size().width;

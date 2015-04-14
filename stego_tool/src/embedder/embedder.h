@@ -16,6 +16,9 @@ namespace StegoTool {
 		virtual Image Embed(const Image& cover) = 0;
 
 		virtual ~Embedder() {}
+
+		double get_embedding_rate() const { return config->get_embedding_rate(); }
+
 	protected:
 		EmbedderConfig* config;
 

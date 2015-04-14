@@ -15,7 +15,7 @@ namespace StegoTool
 
 	double ShiftCompressSteganalyzer::Steganalyze(const Image& image)
 	{
-		Image shifted(image.get_mat() / 2); 
+		Image shifted(image.get_mat() / 2, image.get_original_filename()); 
 		Image addedShifted((image.get_mat() + myConfig->addVal) / 2);
 		Image subbedShifted((image.get_mat() - myConfig->subVal) / 2);
 		

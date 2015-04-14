@@ -11,7 +11,7 @@ namespace StegoTool
 	{
 	public:
 		Image(const std::string& pathToFile); 
-		Image(const cv::Mat& head);
+		Image(const cv::Mat& head, const std::string& pathToFile);
 		~Image();
 
 		// cols = w * c;
@@ -27,6 +27,7 @@ namespace StegoTool
 		uchar get_value(int i, int j, int c) const;
 		
 		const cv::Mat& get_mat() const;
+		std::string get_original_filename()
 
 		void set_value_in1d(uchar value, int pos);
 		void set_value_in2d(uchar value, int i, int j);
@@ -35,6 +36,7 @@ namespace StegoTool
 		unsigned char* get_1d_ptr();
 	private:
 		cv::Mat image;
+		std::string filename;
 	};
 }
 #endif
