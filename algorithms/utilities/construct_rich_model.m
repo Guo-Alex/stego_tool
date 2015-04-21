@@ -3,18 +3,17 @@ function bigModel = construct_rich_model(path_f12753, path_eraseLSB, path_parity
 % and saves it in [save_path]
 % merge fea files from path_f12753, path_eraseLSB, path_parity
 
-if ~isdir(path_f12753) || ~isdir(path_eraseLSB) || ~isdir(path_parity)|| ~isdir(save_path)
-  errorMessage = 'Error: The folder does not exist';
+if ~isdir(path_f12753) || ~isdir(path_eraseLSB) || ~isdir(path_parity) 
+  errorMessage = sprintf('Error: The folder does not exist %s [%s ]%s', path_f12753, path_eraseLSB, path_parity);
   uiwait(warndlg(errorMessage));
   return;
 end 
 
-filesCount = length(dirInfo); 
-full_dim = 0;
-
 dir_f12753  = dir([path_f12753,'/','*.fea']);
-dir_eraseLSB  = dir([path_eraseLSB,'/','*.fea']);
-dir_parity  = dir([path_parity,'/','*.fea']);
+%dir_eraseLSB  = dir([path_eraseLSB,'/','*.fea']);
+%dir_parity  = dir([path_parity,'/','*.fea']);
+
+filesCount = length(dir_f12753); 
  
 bigModel.F = [];
 bigModel.names = {};
@@ -23,9 +22,9 @@ bigModel.dimension = 0;
 for fileNameIdx=1:filesCount
     fileName = dir_f12753(fileNameIdx).name;
     
-    f12753_submodel_file = [path_f12753, fileName];
-    eraseLSB_submodel_file = [path_eraseLSB, fileName];
-    parity_submodel_file = [path_parity, fileName];
+    f12753_submodel_file = [path_f12753, '\', fileName];
+    eraseLSB_submodel_file = [path_eraseLSB, '\', fileName];
+    parity_submodel_file = [path_parity, '\', fileName];
     
     disp(['Begin process submodel [', fileName, ']']);
     
@@ -33,11 +32,11 @@ for fileNameIdx=1:filesCount
     fea_eraseLSB = read_fea(eraseLSB_submodel_file);
     fea_parity = read_fea(parity_submodel_file);
      
-    if (length(bigModel.names) == 0)
+    if (isempty(bigModel.names))
         bigModel.names = fea_parity.names;
     end
-    currentF = [fea_f12753, fea_eraseLSB, fea_parity];
-    
+    currentF = [fea_f12753.F, fea_eraseLSB.F, fea_parity.F];
+   
     submodel_dim = size(currentF, 2); 
     disp(['Submodel dimension [', num2str(submodel_dim), ']']);    
     bigModel.F = [bigModel.F, currentF];

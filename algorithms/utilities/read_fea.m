@@ -16,15 +16,14 @@ function fea = read_fea(file_path)
 %   Each line represents feature of one image - feature is array of real values. 
 %   The first [feature_dim] elements of line (divided by space) is feature's values
 %   the last is string that represents image filename
-% === end 
- 
+% === end  
     fid = fopen(file_path);
     F = [];
     names = {};
-    tline = fgetl(fid);
+    tline = fgetl(fid); 
     idx = 1;
     while ischar(tline)
-        [f, name] = parse_line(tline);        
+        [f, name] = parse_line(tline);  
         F = [F; f]; % add row
         names{idx} = name; % only if image names the same size
         tline = fgetl(fid);        
@@ -35,9 +34,10 @@ function fea = read_fea(file_path)
 
     fea.F = F;
     fea.names = names;
+    
 end
 
-function [F, name] parse_line(line) 
+function [F, name] = parse_line(line) 
     feature_end_idx = -1;
     for idx=length(line):-1:1         
         if (line(idx)== ' ') 
@@ -47,9 +47,9 @@ function [F, name] parse_line(line)
     end;
 
     if (feature_end_idx == -1)
-        errorMessage = sprintf('Error: wrong fea file format: ', line);
+        errorMessage = sprintf('Error: wrong fea file format: %s', line);
         uiwait(warndlg(errorMessage));
     end
-    name = line(feature_end_idx+1:length(name));
+    name = line(feature_end_idx+1:length(line));
     F = str2num(line(1: feature_end_idx));
 end
